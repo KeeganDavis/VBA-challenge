@@ -1,4 +1,5 @@
 Sub StockAnalysis(ws As Worksheet)
+' Finds yearly change in dollars, percent change, and total stock volume for each ticker and adds the values to the appropriate column
 Dim total_volume As Double
 Dim stock_name As String
 Dim yearly_change As Double
@@ -36,6 +37,7 @@ Next i
 End Sub
 
 Sub GreatestCheck(ws As Worksheet)
+' Keeps track of greatest % increase and decrease and the greatest total volume and adds the values and the ticker to the table
 Dim last_row As Long
 Dim stock_name As String
 Dim stock_name_inc As String
@@ -77,6 +79,7 @@ For i = 2 To last_row
 End Sub
 
 Sub TableLabels(ws As Worksheet)
+' Adds all column and row labels to each worksheet
     ws.Range("I1").Value = "Ticker"
     ws.Range("J1").Value = "Yearly Change"
     ws.Range("K1").Value = "Percent Change"
@@ -93,6 +96,7 @@ End Sub
 
 
 Sub AllSheetsAnaylsis()
+' Run all analysis code and add the values with the proper formatting to their respective cells. Change color of cells with negative values to red and positive values to green
 Dim ws As Worksheet
 Dim cell As Range
 For Each ws In ThisWorkbook.Sheets
@@ -115,6 +119,7 @@ End Sub
 
 
 Sub ResetAll()
+' Clears all analysis cells and gets rid of the conditional formatting
 Dim ws As Worksheet
 Dim clear As Range
 For Each ws In ThisWorkbook.Sheets
